@@ -117,7 +117,8 @@ fun FrameApp(vm: FrameViewModel = viewModel()) {
                 .fillMaxSize()
                 .imePadding(),
         ) {
-            val wide = maxWidth > maxHeight * 1.3f
+            val screenHeight = maxHeight
+            val wide = maxWidth > screenHeight * 1.3f
 
             val preview: @Composable (Modifier) -> Unit = { mod ->
                 Box(mod.padding(8.dp), contentAlignment = Alignment.Center) {
@@ -187,7 +188,7 @@ fun FrameApp(vm: FrameViewModel = viewModel()) {
                     }
                 } else {
                     preview(Modifier.weight(1f).fillMaxWidth())
-                    panel(Modifier.heightIn(max = maxHeight * 0.42f))
+                    panel(Modifier.heightIn(max = screenHeight * 0.42f))
                     tabs()
                 }
             }
